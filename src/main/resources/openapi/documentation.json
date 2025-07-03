@@ -39,6 +39,24 @@
             "description": "Requisição inválida"
           }
         }
+      },
+      "get": {
+        "summary": "Busca todos os usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/users/{id}": {
@@ -74,6 +92,68 @@
             "description": "Usuário não encontrado"
           }
         }
+      },
+      "put": {
+        "summary": "Atualiza o nome do usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do usuário",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado"
+          },
+          "400": {
+            "description": "ID inválido"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta usuário por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do usuário",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário deletado"
+          },
+          "400": {
+            "description": "ID inválido"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
       }
     }
   },
@@ -98,6 +178,16 @@
           }
         },
         "required": ["name", "email", "password"]
+      },
+      "UpdateUserRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "João Atualizado"
+          }
+        },
+        "required": ["name"]
       },
       "UserResponse": {
         "type": "object",

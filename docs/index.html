@@ -709,6 +709,16 @@
     }
   }
 };
+            defs["UpdateUserRequest"] = {
+  "required" : [ "name" ],
+  "type" : "object",
+  "properties" : {
+    "name" : {
+      "type" : "string",
+      "example" : "João Atualizado"
+    }
+  }
+};
             defs["UserResponse"] = {
   "type" : "object",
   "properties" : {
@@ -740,8 +750,17 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="usersGet" class="">
+                      <a href="#api-Default-usersGet">usersGet</a>
+                    </li>
+                    <li data-group="Default" data-name="usersIdDelete" class="">
+                      <a href="#api-Default-usersIdDelete">usersIdDelete</a>
+                    </li>
                     <li data-group="Default" data-name="usersIdGet" class="">
                       <a href="#api-Default-usersIdGet">usersIdGet</a>
+                    </li>
+                    <li data-group="Default" data-name="usersIdPut" class="">
+                      <a href="#api-Default-usersIdPut">usersIdPut</a>
                     </li>
                     <li data-group="Default" data-name="usersPost" class="">
                       <a href="#api-Default-usersPost">usersPost</a>
@@ -767,6 +786,533 @@
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
+                    <div id="api-Default-usersGet">
+                      <article id="api-Default-usersGet-0" data-group="User" data-name="usersGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>usersGet</h1>
+                          <p>Busca todos os usuários</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/users</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-usersGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-usersGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-usersGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-usersGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-usersGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-usersGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-usersGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-usersGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-usersGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-usersGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-usersGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-usersGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: application/json"\
+"http://0.0.0.0:8080/users"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-usersGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            array[UserResponse] result = apiInstance.usersGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usersGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-usersGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            array[UserResponse] result = apiInstance.usersGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usersGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-usersGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-usersGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Busca todos os usuários
+[apiInstance usersGetWithCompletionHandler: 
+              ^(array[UserResponse] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Api = require('api');
+
+var api = new Api.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.usersGet(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-usersGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-usersGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class usersGetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                // Busca todos os usuários
+                array[UserResponse] result = apiInstance.usersGet();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.usersGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $result = $api_instance->usersGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->usersGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    my $result = $api_instance->usersGet();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->usersGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    # Busca todos os usuários
+    api_response = api_instance.users_get()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->usersGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Lista de usuários </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-usersGet-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-usersGet-200-schema">
+                                  <div id='responses-usersGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Lista de usuários",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "x-content-type" : "application/json",
+        "items" : {
+          "$ref" : "#/components/schemas/UserResponse"
+        }
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-usersGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-usersGet-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-usersGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-usersIdDelete">
+                      <article id="api-Default-usersIdDelete-0" data-group="User" data-name="usersIdDelete" data-version="0">
+                        <div class="pull-left">
+                          <h1>usersIdDelete</h1>
+                          <p>Deleta usuário por ID</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/users/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-usersIdDelete-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-usersIdDelete-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-usersIdDelete-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-usersIdDelete-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-usersIdDelete-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
+"http://0.0.0.0:8080/users/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-usersIdDelete-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        Integer id = 56; // Integer | ID do usuário
+        try {
+            apiInstance.usersIdDelete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usersIdDelete");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-usersIdDelete-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        Integer id = 56; // Integer | ID do usuário
+        try {
+            apiInstance.usersIdDelete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usersIdDelete");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-usersIdDelete-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-usersIdDelete-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *id = 56; // ID do usuário
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Deleta usuário por ID
+[apiInstance usersIdDeleteWith:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdDelete-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Api = require('api');
+
+var api = new Api.DefaultApi()
+var id = 56; // {{Integer}} ID do usuário
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.usersIdDelete(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-usersIdDelete-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-usersIdDelete-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class usersIdDeleteExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+            var id = 56;  // Integer | ID do usuário
+
+            try
+            {
+                // Deleta usuário por ID
+                apiInstance.usersIdDelete(id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.usersIdDelete: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdDelete-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$id = 56; // Integer | ID do usuário
+
+try {
+    $api_instance->usersIdDelete($id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->usersIdDelete: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdDelete-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $id = 56; # Integer | ID do usuário
+
+eval { 
+    $api_instance->usersIdDelete(id => $id);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->usersIdDelete: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdDelete-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+id = 56 # Integer | ID do usuário
+
+try: 
+    # Deleta usuário por ID
+    api_instance.users_id_delete(id)
+except ApiException as e:
+    print("Exception when calling DefaultApi->usersIdDelete: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_usersIdDelete_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      Integer
+                                                  </span>
+                                                      <span class="format">
+                                                          (int32)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          ID do usuário
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Usuário deletado </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - ID inválido </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - Usuário não encontrado </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Default-usersIdGet">
                       <article id="api-Default-usersIdGet-0" data-group="User" data-name="usersIdGet" data-version="0">
                         <div class="pull-left">
@@ -1061,6 +1607,324 @@ except ApiException as e:
                                   </div>
                                   <input id='responses-usersIdGet-200-schema-data' type='hidden' value=''></input>
                                 </div>
+                            </div>
+
+                            <h3> Status: 400 - ID inválido </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - Usuário não encontrado </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-usersIdPut">
+                      <article id="api-Default-usersIdPut-0" data-group="User" data-name="usersIdPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>usersIdPut</h1>
+                          <p>Atualiza o nome do usuário</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/users/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-usersIdPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-usersIdPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-usersIdPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-usersIdPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-usersIdPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-usersIdPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-usersIdPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-usersIdPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-usersIdPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-usersIdPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-usersIdPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-usersIdPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Content-Type: application/json"\
+"http://0.0.0.0:8080/users/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-usersIdPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        UpdateUserRequest body = ; // UpdateUserRequest | 
+        Integer id = 56; // Integer | ID do usuário
+        try {
+            apiInstance.usersIdPut(body, id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usersIdPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-usersIdPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        UpdateUserRequest body = ; // UpdateUserRequest | 
+        Integer id = 56; // Integer | ID do usuário
+        try {
+            apiInstance.usersIdPut(body, id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usersIdPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-usersIdPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-usersIdPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">UpdateUserRequest *body = ; // 
+Integer *id = 56; // ID do usuário
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Atualiza o nome do usuário
+[apiInstance usersIdPutWith:body
+    id:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var Api = require('api');
+
+var api = new Api.DefaultApi()
+var body = ; // {{UpdateUserRequest}} 
+var id = 56; // {{Integer}} ID do usuário
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.usersIdPut(bodyid, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-usersIdPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-usersIdPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class usersIdPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+            var body = new UpdateUserRequest(); // UpdateUserRequest | 
+            var id = 56;  // Integer | ID do usuário
+
+            try
+            {
+                // Atualiza o nome do usuário
+                apiInstance.usersIdPut(body, id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.usersIdPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$body = ; // UpdateUserRequest | 
+$id = 56; // Integer | ID do usuário
+
+try {
+    $api_instance->usersIdPut($body, $id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->usersIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $body = WWW::SwaggerClient::Object::UpdateUserRequest->new(); # UpdateUserRequest | 
+my $id = 56; # Integer | ID do usuário
+
+eval { 
+    $api_instance->usersIdPut(body => $body, id => $id);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->usersIdPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-usersIdPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+body =  # UpdateUserRequest | 
+id = 56 # Integer | ID do usuário
+
+try: 
+    # Atualiza o nome do usuário
+    api_instance.users_id_put(body, id)
+except ApiException as e:
+    print("Exception when calling DefaultApi->usersIdPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_usersIdPut_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      Integer
+                                                  </span>
+                                                      <span class="format">
+                                                          (int32)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          ID do usuário
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/UpdateUserRequest"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_usersIdPut_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_usersIdPut_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Usuário atualizado </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
                             <h3> Status: 400 - ID inválido </h3>
